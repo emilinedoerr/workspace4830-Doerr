@@ -1,0 +1,62 @@
+<html>
+<head>
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+</head>
+
+<body>
+<header>
+<h1> Insert Data into Sleep Log </h1>
+</header>
+
+<nav>
+<a href="/Tech_Exercise/searchSleepLog.html">Search Sleep Log Data</a> <br>
+</nav>
+
+<section>
+	<h1>Insert Data into Sleep Log</h1>
+	
+	<form action="InsertSleepLog" method="POST">
+	
+		Date (MM/DD/YYYY): <input type="text" name="date"> <br />
+		Time in Bed (HH:MM AM/PM): <input type="text" name="inBed"> <br />
+		Time Asleep (HH:MM AM/PM): <input type="text" name="asleep"> <br />
+		Time Awake (HH:MM AM/PM): <input type="text" name="awake"> <br />
+		Time Out of Bed (HH:MM AM/PM): <input type="text" name="outOfBed"> <br />
+		
+		<input type="submit" value="Submit" />
+	</form>
+
+</section>
+
+<footer>
+Copyright
+</footer>
+</body>
+</html>
