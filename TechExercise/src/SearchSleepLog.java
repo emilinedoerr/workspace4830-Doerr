@@ -43,7 +43,7 @@ public class SearchSleepLog extends HttpServlet {
 	   void search(String keyword, HttpServletResponse response) throws IOException {
 	      response.setContentType("text/html");
 	      PrintWriter out = response.getWriter();
-	      String title = "Sleep Log";
+	      String title = "Sleep Log Results";
 	      String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + //
 	            "transitional//en\">\n"; //
 	      out.println(docType + //
