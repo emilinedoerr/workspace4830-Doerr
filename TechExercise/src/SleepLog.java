@@ -28,8 +28,8 @@ public class SleepLog extends HttpServlet {
             "<head><title>" + title + "</title></head>\n" + //
             "<body bgcolor=\"#f0f0f0\">\n" + //
             "<h1 align=\"center\">" + title + "</h1>\n");
-      out.println("<a href=/Tech_Exercise/searchSleepLog.html>Search Sleep Logs</a> <br>");
-      out.println("<a href=/Tech_Exercise/insertSleepLog.html>Insert Sleep Log Data</a> <br>");
+      out.println("<a href=/TechExercise/searchSleepLog.html>Search Sleep Logs</a> <br>");
+      out.println("<a href=/TechExercise/insertSleepLog.html>Insert Sleep Log Data</a> <br>");
       out.println("</body></html>");
       }
 

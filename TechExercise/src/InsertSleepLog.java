@@ -78,7 +78,7 @@ public class InsertSleepLog extends HttpServlet {
 
 				"</ul>\n");
 
-		out.println("<a href=/Tech_Exercise/searchSleepLog.html>Search Sleep Logs</a> <br>");
+		out.println("<a href=/TechExercise/searchSleepLog.html>Search Sleep Logs</a> <br>");
 		out.println("</body></html>");
 	}
 

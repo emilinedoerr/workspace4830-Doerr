@@ -1,8 +1,8 @@
 URL to Sleep Log home page
-http://localhost:8080/Tech_Exercise/SleepLog
+http://ec2-18-188-90-108.us-east-2.compute.amazonaws.com:8080/TechExercise/SleepLog
 
 URL to Sleep Log insert page
-http://localhost:8080/Tech_Exercise/insertSleepLog.html
+http://ec2-18-188-90-108.us-east-2.compute.amazonaws.com:8080/TechExercise/insertSleepLog.html
 
 URL to Sleep Log search page
-http://localhost:8080/Tech_Exercise/searchSleepLog.html
+http://ec2-18-188-90-108.us-east-2.compute.amazonaws.com:8080/TechExercise/searchSleepLog.html

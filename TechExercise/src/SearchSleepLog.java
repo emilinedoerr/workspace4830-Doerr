@@ -84,7 +84,7 @@ public class SearchSleepLog extends HttpServlet {
 	               out.println("Time Out of Bed: " + outOfBed + "<br>");
 	            }
 	         }
-	         out.println("<a href=/Tech_Exercise/insertSleepLog.html>Insert Sleep Log Data</a> <br>");
+	         out.println("<a href=/TechExercise/insertSleepLog.html>Insert Sleep Log Data</a> <br>");
 	         out.println("</body></html>");
 	         rs.close();
 	         preparedStatement.close();
