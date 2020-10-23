@@ -1,0 +1,8 @@
+URL to Sleep Log home page
+http://localhost:8080/Tech_Exercise/SleepLog
+
+URL to Sleep Log insert page
+http://localhost:8080/Tech_Exercise/insertSleepLog.html
+
+URL to Sleep Log search page
+http://localhost:8080/Tech_Exercise/searchSleepLog.html
