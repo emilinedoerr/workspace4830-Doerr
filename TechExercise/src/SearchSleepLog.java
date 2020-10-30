@@ -13,20 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-/**
- * I plan to develop a Web application SleepLog that stores data about sleeping habits.
- * SleepLog will store the attributes:
- * Date
- * Time in Bed
- * Time Asleep
- * Time Awake
- * Time Out of Bed
- * 
- * Table name: SleepLog
- * DB Name: MyDBTechExercise
- */
-
 @WebServlet("/SearchSleepLog")
 public class SearchSleepLog extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -6,17 +6,25 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class UtilProp {
-	static String _PROP_FILENAME_OSX_LOCAL = "/Users/emmieballs/Desktop/Computer Science/CSCI 4830/workspace4830/workspace4830-tech-exercise-Doerr/TechExercise/WebContent/config.properties";
-	// * Remote server path
-	static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat7/webapps/TechExercise/config.properties";
-	static Properties prop = new Properties();
+	static final boolean _W = System.getProperty("os.name").toLowerCase().contains("windows");
+	   static String _PROP_FILENAME_WIN_LOCAL = "C:\\YOUR_PATH\\TechExercise\\WebContent\\config.properties";
+	   static String _PROP_FILENAME_OSX_LOCAL = "/Users/emmieballs/Desktop/Computer Science/CSCI 4830/workspace4830/workspace4830-tech-exercise-Doerr/TechExercise/WebContent/config.properties";
+	   // * Remote server path
+	   static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat7/webapps/TechExercise/config.properties";
+	   static Properties prop = new Properties();
 
 	public static void loadProperty() throws Exception {
 		FileInputStream inputStream = null;
-
-		if (new File(_PROP_FILENAME_OSX_LOCAL).exists()) {
-			System.out.println("[DBG] Loaded: " + new File(_PROP_FILENAME_OSX_LOCAL).getAbsolutePath());
-			inputStream = new FileInputStream(_PROP_FILENAME_OSX_LOCAL);
+		if (_W) {
+			if (new File(_PROP_FILENAME_WIN_LOCAL).exists()) {
+				System.out.println("[DBG] Loaded: " + new File(_PROP_FILENAME_WIN_LOCAL).getAbsolutePath());
+				inputStream = new FileInputStream(_PROP_FILENAME_WIN_LOCAL);
+			}
+		} else {
+			if (new File(_PROP_FILENAME_OSX_LOCAL).exists()) {
+				System.out.println("[DBG] Loaded: " + new File(_PROP_FILENAME_OSX_LOCAL).getAbsolutePath());
+				inputStream = new FileInputStream(_PROP_FILENAME_OSX_LOCAL);
+			}
 		}
 		if (new File(_PROP_FILENAME_REMOTE).exists()) {
 			System.out.println("[DBG] Loaded: " + new File(_PROP_FILENAME_REMOTE).getAbsolutePath());
