@@ -1,0 +1,29 @@
+Creating an EC2 Instance
+To create an instance of an EC2 Server:
+•	Create (or sign into) an Amazon AWS account at https://aws.amazon.com/ 
+•	At https://console.aws.amazon.com, select “Services > EC2”
+•	Select the blue “Launch Instance” button
+•	Find and Select “Ubuntu Server 16.04 LTS”
+•	Select “Next: Configure Instance Details”
+•	Select “Next: Add Storage”
+•	Change the size to 30
+•	Select “Next: Add Tags”
+•	Select “Next: Configure Security Group”
+•	Add the following:
+o	Type: SSH, Port Range: 22, Source: 0.0.0.0/0
+o	Type: HTTP, Port Range: 80, Source: 0.0.0.0/0
+o	Type: MYSQL/Aurora, Port Range: 3306, Source: 0.0.0.0/0
+o	Type: Custom TCP Rule, Port Range: 8080, Source: 0.0.0.0/0
+•	Launch the instance
+•	Create a new key pair
+o	Name the private key file and download to a secure location
+•	Instructions to connect to the instance can be found by selecting the “Connect” button on the Instances page 
+•	Connect to the EC2 instance using the directions found on the Amazon AWS website
+•	Add a super user to your instance using the commands:
+:~$ sudo adduser YOUR_USERNAME
+:~$ sudo usermod -a -G YOUR_USERNAME
+:~$ sudo vi /etc/ssh/sshd_config
+•	Find “PasswordAuthentication” in the file and comment out the line
+•	Save the file and exit
+•	Restart the service ssh using the command
+:~$ sudo service ssh restart

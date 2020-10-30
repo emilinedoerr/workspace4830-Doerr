@@ -1,0 +1,54 @@
+Installing Apache and MySQL
+•	Install Apache and MySQL by running the following commands:
+:~$ sudo apt-get update
+:~$ sudo apt-get install lamp-server^
+•	Open a web browser and navigate to the URL listed below, replacing YOUR_EC2_SERVER_PUBLIC_DNS with your EC2 server public DNS
+http://YOUR_EC2_SERVER_PUBLIC_DNS:8080/var/www/html/index.html
+o	if you are unsure of what this is, go to your Amazon AWS instances page and copy the Public IPv4 DNS to clipboard
+o	Verify that the Ubuntu default page appears at this URL
+Installing the JDK
+•	In the terminal connected to the instance, run the following commands to install the jdk
+:~$ curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=1P2hdAZ-5z57VuLuE3d6vxfzf6tfe7mcV" > /dev/null
+:~$ curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm='awk '/download/ {print $NF}' ./cookie'&id=1P2hdAZ-5z57uLuE3d6vxfzf6tfe7mcV" -o jdk-8u221-linux-x64.tar.gz
+:~$ sudo mkdir /usr/local/java
+:~$ sudo cp jdk-8u221-linux-x64.tar.gz /usr/local/java/
+:~$ cd /usr/local/java
+:~$ sudo tar xvzf jdk-8u221-linux-x64.tar.gz
+:~$ sudo vi /etc/profile
+•	Copy the lines below to the clipboard 
+JAVA_HOME=/usr/local/java/jdk1.8.0_221
+JRE_HOME=$JAVA_HOME/jre
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+export JAVA_HOME
+export JRE_HOME
+export PATH
+
+•	Paste into the terminal after the lines 
+if [ "$PS1" ]; then
+... SOME SCRIPT CODE ...
+fi
+•	Exit the file and run the following command
+:~$ source /etc/profile
+
+Installing Apache Tomcat
+•	Install Apache Tomcat using the following commands:
+:~$ sudo apt-get install tomcat7
+:~$ sudo apt-get install tomcat7-docs tomcat7-admin tomcat7-examples
+
+Creating a MySQL User
+•	Create a MySQL user using the following commands, replacing YOUR_MYSQL_USER with your desired MySQL username and YOUR_MYSQL_PWD with your desired password:
+:~$ mysql -u root -p
+mysql> CREATE USER ‘YOUR_MYSQL_USER’@’	localhost’ IDENTIFIED BY ‘YOUR_MYSQL_PWD’;
+mysql> GRANT ALL PRIVELEGES ON *.* TO ‘YOUR_MYSQL_USER’@’localhost’;
+mysql> GRANT ALL PRIVELEGES ON *.* TO ‘YOUR_MYSQL_USER’@’%’ IDENTIFIED BY ‘YOUR_MYSQL_PWD’ WITH GRANT OPTION;
+mysql> FLUSH PRIVELEGES;
+
+Installing the MySQL Connector
+•	Enter the following commands into the terminal to install the mysql connector
+:~$ curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=1ngYGkYR7EudHG-ii5Ym_UgrBQNHTcAan" > /dev/null
+:~$ curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm='awk '/download/ {print $NF}' ./cookie'&id=1ngYGkYR7EudHG-ii5Ym_UgrBQNHTcAan" -o mysql-connector-java-8.0.17.tar.gz
+:~$ tar xvzf mysql-connector-java-8.0.17.tar.gz
+:~$ sudo cp ./mysql-connector-java-8.0.17/mysql-connector-java-8.0.17.jar /usr/share/java
+:~$ cd /usr/share/tomcat7/lib
+:~$ sudo ln -s ../../java/mysql-connector-java-8.0.17.jar mysql-connector.jar
+:~$ sudo service tomcat7 restart
